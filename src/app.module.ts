@@ -31,13 +31,13 @@ dotenv.config();
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
         type: 'postgres',
-        host: configService.get('DB_HOST'),
-        port: +configService.get('DB_PORT'),
-        username: configService.get('DB_USERNAME'),
-        password: configService.get('DB_PASSWORD'),
-        database: configService.get('DB_DATABASE'),
+        host: configService.get('DEV_DB_HOST'),
+        port: +configService.get('DEV_DB_PORT'),
+        // username: configService.get('DB_USERNAME'),
+        // password: configService.get('DB_PASSWORD'),
+        database: configService.get('DEV_DB_DATABASE'),
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
-        ssl: true, // has to be true for online database
+        // ssl: true, // has to be true for online database
         synchronize: true,
       }),
     }),

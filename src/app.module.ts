@@ -7,6 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { CategoriesModule } from './categories/categories.module';
 import { MembersModule } from './members/members.module';
 import { UsersModule } from './users/users.module';
 
@@ -42,8 +43,9 @@ dotenv.config();
         synchronize: true,
       }),
     }),
-    UsersModule,
+    CategoriesModule,
     MembersModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],

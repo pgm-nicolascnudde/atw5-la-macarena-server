@@ -2,6 +2,19 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Category {
+  description: String!
+  id: Int!
+  image: String!
+  title: String!
+}
+
+input CreateCategoryInput {
+  description: String!
+  image: String!
+  title: String!
+}
+
 input CreateMemberInput {
   birthday: Int!
   firstName: String!
@@ -26,19 +39,31 @@ type Member {
 }
 
 type Mutation {
+  createCategory(createCategoryInput: CreateCategoryInput!): Category!
   createMember(createMemberInput: CreateMemberInput!): Member!
   createUser(createUserInput: CreateUserInput!): User!
+  removeCategory(id: Int!): Category!
   removeMember(id: Int!): Member!
   removeUser(id: Int!): User!
+  updateCategory(updateCategoryInput: UpdateCategoryInput!): Category!
   updateMember(updateMemberInput: UpdateMemberInput!): Member!
   updateUser(updateUserInput: UpdateUserInput!): User!
 }
 
 type Query {
+  categories: [Category!]!
+  category(id: Int!): Category!
   member(id: Int!): Member!
   members: [Member!]!
   user(id: Int!): User!
   users: [User!]!
+}
+
+input UpdateCategoryInput {
+  description: String
+  id: Int!
+  image: String
+  title: String
 }
 
 input UpdateMemberInput {

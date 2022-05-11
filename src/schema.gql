@@ -2,10 +2,29 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Activity {
+  date: Int!
+  description: String!
+  id: Int!
+  image: String!
+  price: Int!
+  slots: Int!
+  title: String!
+}
+
 type Category {
   description: String!
   id: Int!
   image: String!
+  title: String!
+}
+
+input CreateActivityInput {
+  date: Int!
+  description: String!
+  image: String!
+  price: Int!
+  slots: Int!
   title: String!
 }
 
@@ -39,24 +58,39 @@ type Member {
 }
 
 type Mutation {
+  createActivity(createActivityInput: CreateActivityInput!): Activity!
   createCategory(createCategoryInput: CreateCategoryInput!): Category!
   createMember(createMemberInput: CreateMemberInput!): Member!
   createUser(createUserInput: CreateUserInput!): User!
+  removeActivity(id: Int!): Activity!
   removeCategory(id: Int!): Category!
   removeMember(id: Int!): Member!
   removeUser(id: Int!): User!
+  updateActivity(updateActivityInput: UpdateActivityInput!): Activity!
   updateCategory(updateCategoryInput: UpdateCategoryInput!): Category!
   updateMember(updateMemberInput: UpdateMemberInput!): Member!
   updateUser(updateUserInput: UpdateUserInput!): User!
 }
 
 type Query {
+  activities: [Activity!]!
+  activity(id: Int!): Activity!
   categories: [Category!]!
   category(id: Int!): Category!
   member(id: Int!): Member!
   members: [Member!]!
   user(id: Int!): User!
   users: [User!]!
+}
+
+input UpdateActivityInput {
+  date: Int
+  description: String
+  id: Int!
+  image: String
+  price: Int
+  slots: Int
+  title: String
 }
 
 input UpdateCategoryInput {

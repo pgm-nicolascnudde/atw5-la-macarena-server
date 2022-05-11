@@ -2,21 +2,52 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+input CreateMemberInput {
+  birthday: Int!
+  firstName: String!
+  lastName: String!
+  origin: String!
+  picture: String!
+}
+
 input CreateUserInput {
   email: String!
   password: String!
   username: String!
 }
 
+type Member {
+  birthday: Int!
+  firstName: String!
+  id: Int!
+  lastName: String!
+  origin: String!
+  picture: String!
+}
+
 type Mutation {
+  createMember(createMemberInput: CreateMemberInput!): Member!
   createUser(createUserInput: CreateUserInput!): User!
+  removeMember(id: Int!): Member!
   removeUser(id: Int!): User!
+  updateMember(updateMemberInput: UpdateMemberInput!): Member!
   updateUser(updateUserInput: UpdateUserInput!): User!
 }
 
 type Query {
+  member(id: Int!): Member!
+  members: [Member!]!
   user(id: Int!): User!
   users: [User!]!
+}
+
+input UpdateMemberInput {
+  birthday: Int
+  firstName: String
+  id: Int!
+  lastName: String
+  origin: String
+  picture: String
 }
 
 input UpdateUserInput {

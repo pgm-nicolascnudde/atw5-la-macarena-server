@@ -51,7 +51,10 @@ export class ActivitiesService {
       description: '',
       image: '',
       price: 0,
-      date: 0,
+      multipleDays: false,
+      date: null,
+      fromDate: null,
+      toDate: null,
       slots: 0,
     };
   }

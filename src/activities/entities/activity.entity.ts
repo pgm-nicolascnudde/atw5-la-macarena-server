@@ -8,7 +8,7 @@ export class Activity {
   @Field(() => Int)
   id: number;
 
-  @Column('varchar', { length: 32, unique: true })
+  @Column('varchar', { length: 32 })
   @Field(() => String)
   title: string;
 
@@ -25,8 +25,20 @@ export class Activity {
   price: number;
 
   @Column()
-  @Field(() => Int)
-  date: number;
+  @Field(() => Boolean)
+  multipleDays: boolean;
+
+  @Column({ type: 'timestamptz', nullable: true })
+  @Field(() => Date, { nullable: true })
+  date: Date;
+
+  @Column({ type: 'timestamptz', nullable: true })
+  @Field(() => Date, { nullable: true })
+  fromDate: Date;
+
+  @Column({ type: 'timestamptz', nullable: true })
+  @Field(() => Date, { nullable: true })
+  toDate: Date;
 
   @Column()
   @Field(() => Int)

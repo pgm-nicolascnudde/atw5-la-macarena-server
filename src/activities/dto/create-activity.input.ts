@@ -14,8 +14,17 @@ export class CreateActivityInput {
   @Field(() => Int)
   price: number;
 
-  @Field(() => Int)
-  date: number;
+  @Field(() => Boolean)
+  multipleDays: boolean;
+
+  @Field(() => Date, { nullable: true })
+  date: Date;
+
+  @Field(() => Date, { nullable: true })
+  fromDate: Date;
+
+  @Field(() => Date, { nullable: true })
+  toDate: Date;
 
   @Field(() => Int)
   slots: number;

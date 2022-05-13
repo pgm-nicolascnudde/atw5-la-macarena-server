@@ -19,4 +19,7 @@ export class CreateOrderInput {
 
   @Field(() => String)
   status: string;
+
+  @Field(() => Int)
+  activityId: number;
 }

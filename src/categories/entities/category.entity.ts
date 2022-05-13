@@ -1,5 +1,7 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+
+import { Activity } from 'src/activities/entities/activity.entity';
 
 @Entity()
 @ObjectType()
@@ -19,4 +21,8 @@ export class Category {
   @Column('varchar', { length: 256 })
   @Field(() => String)
   image: string;
+
+  @OneToMany(() => Activity, (activity) => activity.category)
+  @Field(() => [Activity])
+  activities: Activity[];
 }

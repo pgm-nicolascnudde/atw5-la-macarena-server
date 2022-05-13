@@ -8,8 +8,8 @@ export class CreateOrderInput {
   @Field(() => String)
   lastName: string;
 
-  @Field(() => Int)
-  phone: number;
+  @Field(() => String)
+  phone: string;
 
   @Field(() => String)
   email: string;

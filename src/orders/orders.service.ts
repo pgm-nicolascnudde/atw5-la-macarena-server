@@ -42,6 +42,14 @@ export class OrdersService {
     const order = await this.findOne(id);
     await this.ordersRepository.remove(order);
 
-    return { id: id, ...order };
+    return {
+      id: id,
+      firstName: '',
+      lastName: '',
+      phone: '',
+      email: '',
+      amount: 0,
+      status: '',
+    };
   }
 }

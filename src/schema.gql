@@ -48,6 +48,15 @@ input CreateMemberInput {
   picture: String!
 }
 
+input CreateOrderInput {
+  amount: Int!
+  email: String!
+  firstName: String!
+  lastName: String!
+  phone: String!
+  status: String!
+}
+
 input CreateUserInput {
   email: String!
   password: String!
@@ -72,15 +81,28 @@ type Mutation {
   createActivity(createActivityInput: CreateActivityInput!): Activity!
   createCategory(createCategoryInput: CreateCategoryInput!): Category!
   createMember(createMemberInput: CreateMemberInput!): Member!
+  createOrder(createOrderInput: CreateOrderInput!): Order!
   createUser(createUserInput: CreateUserInput!): User!
   removeActivity(id: Int!): Activity!
   removeCategory(id: Int!): Category!
   removeMember(id: Int!): Member!
+  removeOrder(id: Int!): Order!
   removeUser(id: Int!): User!
   updateActivity(updateActivityInput: UpdateActivityInput!): Activity!
   updateCategory(updateCategoryInput: UpdateCategoryInput!): Category!
   updateMember(updateMemberInput: UpdateMemberInput!): Member!
+  updateOrder(updateOrderInput: UpdateOrderInput!): Order!
   updateUser(updateUserInput: UpdateUserInput!): User!
+}
+
+type Order {
+  amount: Int!
+  email: String!
+  firstName: String!
+  id: Int!
+  lastName: String!
+  phone: String!
+  status: String!
 }
 
 type Query {
@@ -90,6 +112,8 @@ type Query {
   category(id: Int!): Category!
   member(id: Int!): Member!
   members: [Member!]!
+  order(id: Int!): Order!
+  orders: [Order!]!
   user(id: Int!): User!
   users: [User!]!
 }
@@ -121,6 +145,16 @@ input UpdateMemberInput {
   lastName: String
   origin: String
   picture: String
+}
+
+input UpdateOrderInput {
+  amount: Int
+  email: String
+  firstName: String
+  id: Int!
+  lastName: String
+  phone: String
+  status: String
 }
 
 input UpdateUserInput {

@@ -16,9 +16,9 @@ export class Order {
   @Field(() => String)
   lastName: string;
 
-  @Column('int')
-  @Field(() => Int)
-  phone: number;
+  @Column('varchar', { length: 32 })
+  @Field(() => String)
+  phone: string;
 
   @Column('varchar', { length: 64 })
   @Field(() => String)

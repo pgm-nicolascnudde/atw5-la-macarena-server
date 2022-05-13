@@ -10,6 +10,7 @@ import { AppService } from './app.service';
 import { ActivitiesModule } from './activities/activities.module';
 import { CategoriesModule } from './categories/categories.module';
 import { MembersModule } from './members/members.module';
+import { OrdersModule } from './orders/orders.module';
 import { UsersModule } from './users/users.module';
 
 // Environment variables
@@ -47,6 +48,7 @@ dotenv.config();
     ActivitiesModule,
     CategoriesModule,
     MembersModule,
+    OrdersModule,
     UsersModule,
   ],
   controllers: [AppController],

@@ -1,5 +1,8 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+
+import { Category } from '../../categories/entities/category.entity';
+import { Order } from '../../orders/entities/order.entity';
 
 @Entity()
 @ObjectType()
@@ -43,4 +46,16 @@ export class Activity {
   @Column()
   @Field(() => Int)
   slots: number;
+
+  @Column()
+  @Field(() => Int)
+  categoryId: number;
+
+  @ManyToOne(() => Category, (category) => category.activities, { eager: true })
+  @Field(() => Category)
+  category: Category;
+
+  @OneToMany(() => Order, (order) => order.activity)
+  @Field(() => [Order])
+  orders: Order[];
 }

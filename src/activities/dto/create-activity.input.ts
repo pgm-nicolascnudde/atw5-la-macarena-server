@@ -28,4 +28,7 @@ export class CreateActivityInput {
 
   @Field(() => Int)
   slots: number;
+
+  @Field(() => Int)
+  categoryId: number;
 }

@@ -57,6 +57,10 @@ input CreateOrderInput {
   status: String!
 }
 
+input CreatePaymentInput {
+  method: String!
+}
+
 input CreateUserInput {
   email: String!
   password: String!
@@ -82,16 +86,19 @@ type Mutation {
   createCategory(createCategoryInput: CreateCategoryInput!): Category!
   createMember(createMemberInput: CreateMemberInput!): Member!
   createOrder(createOrderInput: CreateOrderInput!): Order!
+  createPayment(createPaymentInput: CreatePaymentInput!): Payment!
   createUser(createUserInput: CreateUserInput!): User!
   removeActivity(id: Int!): Activity!
   removeCategory(id: Int!): Category!
   removeMember(id: Int!): Member!
   removeOrder(id: Int!): Order!
+  removePayment(id: Int!): Payment!
   removeUser(id: Int!): User!
   updateActivity(updateActivityInput: UpdateActivityInput!): Activity!
   updateCategory(updateCategoryInput: UpdateCategoryInput!): Category!
   updateMember(updateMemberInput: UpdateMemberInput!): Member!
   updateOrder(updateOrderInput: UpdateOrderInput!): Order!
+  updatePayment(updatePaymentInput: UpdatePaymentInput!): Payment!
   updateUser(updateUserInput: UpdateUserInput!): User!
 }
 
@@ -105,6 +112,11 @@ type Order {
   status: String!
 }
 
+type Payment {
+  id: Int!
+  method: String!
+}
+
 type Query {
   activities: [Activity!]!
   activity(id: Int!): Activity!
@@ -114,6 +126,8 @@ type Query {
   members: [Member!]!
   order(id: Int!): Order!
   orders: [Order!]!
+  payment(id: Int!): Payment!
+  payments: [Payment!]!
   user(id: Int!): User!
   users: [User!]!
 }
@@ -155,6 +169,11 @@ input UpdateOrderInput {
   lastName: String
   phone: String
   status: String
+}
+
+input UpdatePaymentInput {
+  id: Int!
+  method: String
 }
 
 input UpdateUserInput {

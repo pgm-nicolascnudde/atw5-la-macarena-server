@@ -11,6 +11,7 @@ import { ActivitiesModule } from './activities/activities.module';
 import { CategoriesModule } from './categories/categories.module';
 import { MembersModule } from './members/members.module';
 import { OrdersModule } from './orders/orders.module';
+import { PaymentsModule } from './payments/payments.module';
 import { UsersModule } from './users/users.module';
 
 // Environment variables
@@ -49,6 +50,7 @@ dotenv.config();
     CategoriesModule,
     MembersModule,
     OrdersModule,
+    PaymentsModule,
     UsersModule,
   ],
   controllers: [AppController],

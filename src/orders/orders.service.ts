@@ -50,6 +50,8 @@ export class OrdersService {
       email: '',
       amount: 0,
       status: '',
+      activityId: 0,
+      activity: null,
     };
   }
 }

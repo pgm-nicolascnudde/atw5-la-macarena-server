@@ -50,6 +50,7 @@ export class CategoriesService {
       title: '',
       description: '',
       image: '',
+      activities: null,
     };
   }
 }

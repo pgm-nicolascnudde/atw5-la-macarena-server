@@ -1,12 +1,10 @@
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
-import { join } from 'path';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { join } from 'path';
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { ActivitiesModule } from './activities/activities.module';
 import { CategoriesModule } from './categories/categories.module';
 import { MembersModule } from './members/members.module';
@@ -52,8 +50,6 @@ dotenv.config();
     OrdersModule,
     PaymentsModule,
     UsersModule,
-  ],
-  controllers: [AppController],
-  providers: [AppService],
+  ]
 })
 export class AppModule {}

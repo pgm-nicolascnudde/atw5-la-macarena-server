@@ -3,12 +3,15 @@
 # ------------------------------------------------------
 
 type Activity {
+  category: Category!
+  categoryId: Int!
   date: DateTime
   description: String!
   fromDate: DateTime
   id: Int!
   image: String!
   multipleDays: Boolean!
+  orders: [Order!]!
   price: Int!
   slots: Int!
   title: String!
@@ -16,6 +19,7 @@ type Activity {
 }
 
 type Category {
+  activities: [Activity!]!
   description: String!
   id: Int!
   image: String!
@@ -23,6 +27,7 @@ type Category {
 }
 
 input CreateActivityInput {
+  categoryId: Int!
   date: DateTime
   description: String!
   fromDate: DateTime
@@ -49,6 +54,7 @@ input CreateMemberInput {
 }
 
 input CreateOrderInput {
+  activityId: Int!
   amount: Int!
   email: String!
   firstName: String!
@@ -103,6 +109,8 @@ type Mutation {
 }
 
 type Order {
+  activity: Activity!
+  activityId: Int!
   amount: Int!
   email: String!
   firstName: String!
@@ -133,6 +141,7 @@ type Query {
 }
 
 input UpdateActivityInput {
+  categoryId: Int
   date: DateTime
   description: String
   fromDate: DateTime
@@ -162,6 +171,7 @@ input UpdateMemberInput {
 }
 
 input UpdateOrderInput {
+  activityId: Int
   amount: Int
   email: String
   firstName: String

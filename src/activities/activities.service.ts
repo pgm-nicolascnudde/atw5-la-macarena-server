@@ -56,6 +56,9 @@ export class ActivitiesService {
       fromDate: null,
       toDate: null,
       slots: 0,
+      categoryId: 0,
+      category: null,
+      orders: null,
     };
   }
 }
